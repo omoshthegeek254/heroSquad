@@ -10,7 +10,7 @@ public class App {
 
         get("/", (request, response) -> {
 
-            return new ModelAndView(null,"master.hbs");
+            return new ModelAndView(null,"index.hbs");
         }, new HandlebarsTemplateEngine());
     }
 

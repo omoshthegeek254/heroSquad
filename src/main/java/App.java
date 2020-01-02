@@ -1,3 +1,4 @@
+import models.Heroes;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -22,6 +23,8 @@ public class App {
             int age = Integer.parseInt(request.queryParams("age"));
             String superPowers = request.queryParams("superPowers");
             String weakness = request.queryParams("weakness");
+
+            Heroes newHero = new Heroes(name,age,superPowers,weakness);
 
 
             return new ModelAndView(null,"post-hero.hbs");

@@ -22,6 +22,10 @@ public class Heroes {
         return name;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     public String getSuperPowers() {
         return superPowers;
     }
@@ -30,9 +34,7 @@ public class Heroes {
         return weakness;
     }
 
-    public int getAge() {
-        return age;
-    }
+
 
     public static ArrayList<Heroes> getAllHeroes() {
         return allHeroes;

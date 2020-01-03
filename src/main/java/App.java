@@ -1,7 +1,9 @@
 import models.Heroes;
+import models.Squads;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,8 +14,15 @@ public class App {
         staticFileLocation( "/public");
 
         get("/", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            ArrayList<Heroes> allHeroes = Heroes.getAllHeroes();
+            ArrayList<Squads> allSquads = Squads.getAllSquads();
 
-            return new ModelAndView(null,"index.hbs");
+            model.put("allHeroes", allHeroes);
+            model.put("allSquads", allSquads);
+
+
+            return new ModelAndView(model,"index.hbs");
         }, new HandlebarsTemplateEngine());
 
         post ("/post-hero", (request, response) -> {
@@ -27,7 +36,7 @@ public class App {
             Heroes newHero = new Heroes(name,age,superPowers,weakness);
 
 
-            return new ModelAndView(null,"post-hero.hbs");
+            return new ModelAndView(model,"post-hero.hbs");
         }, new HandlebarsTemplateEngine());
 
         post ("/hero-team", (request, response) -> {

@@ -2,8 +2,9 @@
 
 {{#partial "content"}}
    <div class="row">
+       <h1 class="jumbotron text-center bg-danger">Heros Squad </h1>
        <div class="col-md-6">
-           <h1>Heros Squad </h1>
+
            <h2> </h2>
 
            <p> Welcome to Hero Squad , Here you can register </p>
@@ -43,20 +44,19 @@
                <label for="squadName">Squad Name</label>
                <input type="text" class="form-control" name="squadName" placeholder="enter squad name">
 
-               <label for="cause">Squad Cause</label>
+               <label for="cause">Squad Members</label>
                <select class="form-control" id="inlineFormCustomSelect">
                    <option selected>Choose...</option>
                    <option value="1">One</option>
-                   <option value="2">Two</option>
-                   <option value="3">Three</option>
+
                </select>
 
                <label for="members">Squad Cause</label>
                <select class="form-control" id="inlineFormCustomSelect">
-                   <option selected>Choose...</option>
-                   <option value="1">One</option>
-                   <option value="2">Two</option>
-                   <option value="3">Three</option>
+                   <option selected>Choose... Combating</option>
+                   <option value="1">Gender Based Crimes</option>
+                   <option value="2">Economic Crimes </option>
+                   <option value="3">Evil Villans</option>
                </select>
 
                <button type="submit" class="btn btn-primary">Create Squad</button>
@@ -70,13 +70,22 @@
            {{#if allHeroes}}
                <h4>List of Heroes</h4>
                <ol>
-                   {{#each allHero}}
-                       <li>{{name}}  </li>
+                   {{#each allHeroes}}
+                       <h4>Name : {{name}}  </h4>
+                       <p>Age {{age}}: </p>
+                       <p>Superpowers: {{superPowers}}</p>
+                       <p>Weakness:  {{weakness}}</p>
                    {{/each}}
                </ol>
            {{else}}
                <p class="text-danger">No Heroes registered yet </p>
            {{/if}}
+
+<!--           displaying squads-->
+
+
+
+
 
        </div>
    </div>

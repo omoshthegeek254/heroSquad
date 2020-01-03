@@ -83,6 +83,23 @@
 
 <!--           displaying squads-->
 
+           <h4>Squads Available</h4>
+           <h4>List of Heroes</h4>
+
+           {{#if allSquads}}
+
+               <ol>
+                   {{#each allS}}
+                       <h4>Name : {{name}}  </h4>
+                       <p>Age {{age}}: </p>
+                       <p>Superpowers: {{superPowers}}</p>
+                       <p>Weakness:  {{weakness}}</p>
+                   {{/each}}
+               </ol>
+           {{else}}
+               <p class="text-danger">No Heroes registered yet </p>
+           {{/if}}
+
 
 
 

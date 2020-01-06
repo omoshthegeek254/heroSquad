@@ -41,6 +41,15 @@ public class App {
 
         post ("/hero-team", (request, response) -> {
 
+            Map<String, Object> model = new HashMap<>();
+
+            String squadName = request.queryParams("squadName");
+            String squadMembers = request.queryParams("squadMembers");
+            String squadCause = request.queryParams("squadCause");
+
+            Squads newSquad = new Squads(squadName,squadMembers,squadCause);
+
+
             return new ModelAndView(null,"hero-team.hbs");
         }, new HandlebarsTemplateEngine());
     }

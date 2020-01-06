@@ -6,6 +6,9 @@ public class Squads {
     private String squadName;
     private String squadMembers;
     private String squadCause;
+    private int id;
+
+
 
     private  static ArrayList<Squads> allSquads =new ArrayList<>();
 
@@ -13,6 +16,7 @@ public class Squads {
         this.squadName = squadName;
         this.squadMembers = squadMembers;
         this.squadCause = squadCause;
+        this.id = allSquads.size()+1;
 
         allSquads.add(this);
     }
@@ -31,5 +35,9 @@ public class Squads {
 
     public static ArrayList<Squads> getAllSquads() {
         return allSquads;
+    }
+
+    public int getId() {
+        return id;
     }
 }

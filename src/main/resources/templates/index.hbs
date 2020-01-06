@@ -12,7 +12,7 @@
 
            <h3>Register your heros here</h3>
 
-           <form action="/post-hero" method="post">
+           <form action="/post-hero" method="post" class="p-2">
                <label for="name">Name</label>
                <input type="text" class="form-control" name="name" placeholder="hero's Name">
 
@@ -40,19 +40,21 @@
                <li>A superhero can participate in only one team at  a go </li>
            </ul>
 
-           <form action="/hero-team" method="post">
+           <form action="/hero-team" method="post" class="p-3">
                <label for="squadName">Squad Name</label>
                <input type="text" class="form-control" name="squadName" placeholder="enter squad name">
 
                <label for="cause">Squad Members</label>
-               <select class="form-control" id="inlineFormCustomSelect">
-                   <option selected>Choose...</option>
-                   <option value="1">One</option>
+               <select class="form-control" id="inlineFormCustomSelect" name="squadMembers">
+                   <option selected>Choose... Squad Members</option>
+                   {{#each allSquads}}
+                       <option value="{{id}}">{{squadName}}</option>
+                   {{/each}}
 
                </select>
 
                <label for="members">Squad Cause</label>
-               <select class="form-control" id="inlineFormCustomSelect">
+               <select class="form-control" id="inlineFormCustomSelect" name="squadCause">
                    <option selected>Choose... Combating</option>
                    <option value="1">Gender Based Crimes</option>
                    <option value="2">Economic Crimes </option>
@@ -66,9 +68,10 @@
 
        <div class="col-md-6">
 <!--           DISPLAYING HEROES-->
+           <h4>List of Heroes</h4>
 
            {{#if allHeroes}}
-               <h4>List of Heroes</h4>
+
                <ol>
                    {{#each allHeroes}}
                        <h4>Name : {{name}}  </h4>
@@ -80,24 +83,24 @@
            {{else}}
                <p class="text-danger">No Heroes registered yet </p>
            {{/if}}
-
+           <hr>
 <!--           displaying squads-->
 
            <h4>Squads Available</h4>
-           <h4>List of Heroes</h4>
+
 
            {{#if allSquads}}
 
                <ol>
-                   {{#each allS}}
-                       <h4>Name : {{name}}  </h4>
-                       <p>Age {{age}}: </p>
-                       <p>Superpowers: {{superPowers}}</p>
-                       <p>Weakness:  {{weakness}}</p>
+                   {{#each allSquads}}
+                       <h4>{{id}} : {{squadName}}  </h4>
+                       <p>Squad Members : {{squadMembers}}: </p>
+                       <p>Squad Cause: {{squadCause}}</p>
+
                    {{/each}}
                </ol>
            {{else}}
-               <p class="text-danger">No Heroes registered yet </p>
+               <p class="text-danger">No Squad registered yet </p>
            {{/if}}
 
 
@@ -105,6 +108,7 @@
 
 
        </div>
+
    </div>
 
 {{/partial}}

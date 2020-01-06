@@ -47,8 +47,8 @@
                <label for="cause">Squad Members</label>
                <select class="form-control" id="inlineFormCustomSelect" name="squadMembers">
                    <option selected>Choose... Squad Members</option>
-                   {{#each allSquads}}
-                       <option value="{{id}}">{{squadName}}</option>
+                   {{#each allHeroes}}
+                       <option value="{{name}}">{{id}} . {{name}}</option>
                    {{/each}}
 
                </select>
@@ -56,9 +56,9 @@
                <label for="members">Squad Cause</label>
                <select class="form-control" id="inlineFormCustomSelect" name="squadCause">
                    <option selected>Choose... Combating</option>
-                   <option value="1">Gender Based Crimes</option>
-                   <option value="2">Economic Crimes </option>
-                   <option value="3">Evil Villans</option>
+                   <option value="Gender Based Crimes">Gender Based Crimes</option>
+                   <option value="Economic Crimes">Economic Crimes </option>
+                   <option value="Evil Villans">Evil Villans</option>
                </select>
 
                <button type="submit" class="btn btn-primary">Create Squad</button>
@@ -93,9 +93,9 @@
 
                <ol>
                    {{#each allSquads}}
-                       <h4>{{id}} : {{squadName}}  </h4>
+                       <h4>{{id}} Squad Name : {{squadName}}  </h4>
                        <p>Squad Members : {{squadMembers}}: </p>
-                       <p>Squad Cause: {{squadCause}}</p>
+                       <p>Squad Cause:(Fights) {{squadCause}}</p>
 
                    {{/each}}
                </ol>

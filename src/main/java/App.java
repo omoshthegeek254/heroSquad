@@ -50,7 +50,7 @@ public class App {
             Squads newSquad = new Squads(squadName,squadMembers,squadCause);
 
 
-            return new ModelAndView(null,"hero-team.hbs");
+            return new ModelAndView(model,"hero-team.hbs");
         }, new HandlebarsTemplateEngine());
     }
 

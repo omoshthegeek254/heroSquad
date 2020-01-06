@@ -7,6 +7,7 @@ public class Heroes {
     private String superPowers;
     private String weakness;
     private int age;
+    private int id;
     private  static ArrayList<Heroes> allHeroes =new ArrayList<>();
 
     public Heroes(String name, int age, String superPowers, String weakness){
@@ -14,6 +15,7 @@ public class Heroes {
         this.age = age;
         this.superPowers = superPowers;
         this.weakness =weakness;
+        this.id = allHeroes.size()+1;
 
         allHeroes.add(this);
     }
@@ -34,7 +36,9 @@ public class Heroes {
         return weakness;
     }
 
-
+    public int getId() {
+        return id;
+    }
 
     public static ArrayList<Heroes> getAllHeroes() {
         return allHeroes;

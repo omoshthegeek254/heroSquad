@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title" }}{{/block}}</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+</head>
+<body>
+<!--begin main template-->
+<div class="container bg-danger">
+
+    {{#block "content" }}
+
+    {{/block }}
+
+</div>
+<!--end main template-->
+{{#block "footer" }}
+    </body>
+    </html>
+{{/block }}

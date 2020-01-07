@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'com.omoshthegeek@gmail'
@@ -17,3 +18,4 @@ dependencies {
     compile "com.sparkjava:spark-template-handlebars:2.5.5" //we'll need this for later!
     compile 'org.slf4j:slf4j-simple:1.7.21' //to ensure easy to read logging.
 }
+mainClassName = 'App'

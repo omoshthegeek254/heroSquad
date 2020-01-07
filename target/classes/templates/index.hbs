@@ -45,19 +45,13 @@
                <input type="text" class="form-control" name="squadName" placeholder="enter squad name">
 
                <label for="cause">Squad Members</label>
-               <br><br>
+               <select class="form-control" id="inlineFormCustomSelect" name="squadMembers">
+                   <option selected>Choose... Squad Members</option>
+                   {{#each allHeroes}}
+                       <option value="{{name}}">{{id}} . {{name}}</option>
+                   {{/each}}
 
-
-
-
-
-                       <select multiple name="squadMembers">
-                           <option selected>Choose... Squad Members</option>
-                           {{#each allHeroes}}
-                           <option value="{{name}}">{{name}}</option>
-                           {{/each}}
-
-                       </select> <br><br>
+               </select>
 
                <label for="members">Squad Cause</label>
                <select class="form-control" id="inlineFormCustomSelect" name="squadCause">

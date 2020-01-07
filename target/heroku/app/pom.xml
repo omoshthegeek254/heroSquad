@@ -5,40 +5,41 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.omoshthegeek</groupId>
-    <artifactId>herosquad-omoshthegeek</artifactId>
-    <version>1.0</version>
+    <artifactId>heroSquad</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-        <!-- We need to list out ALL dependencies our project needs. If you have dependencies not listed here, but sure to add them -->
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
             <version>2.2</version>
         </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
-    <dependency>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.3</version>
-    </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.sparkjava/spark-template-handlebars -->
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-template-handlebars</artifactId>
+            <version>2.5.5</version>
+        </dependency>
 
-    <dependency>
-        <groupId>com.sparkjava</groupId>
-        <artifactId>spark-template-handlebars</artifactId>
-        <version>2.5.5</version>
-    </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.21</version>
+        </dependency>
 
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.12</version>
-        <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
 
 
 
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -81,13 +82,13 @@
                     <!-- Change this to YOUR application name! -->
                     <appName>herosquad-omoshthegeek</appName>
                     <processTypes>
-                        <web>java -jar target/my-app-1.0-jar-with-dependencies.jar</web>
+                        <web>java -jar target/heroSquad-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
         </plugins>
-    </build>
 
+    </build>
 
 
 </project>

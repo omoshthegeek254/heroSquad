@@ -3,7 +3,7 @@ plugins {
     id 'application'
 }
 
-group 'com.omoshthegeek@gmail'
+group 'com.omoshthegeek'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8

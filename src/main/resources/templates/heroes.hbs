@@ -1,0 +1,68 @@
+{{#partial "content"}}
+
+    <div class="jumbotron text-center">
+
+        <h2>Heroes</h2>
+    </div>
+
+        <div class="col-md-6  m-4">
+            <h3 class="">Create you Hero</h3>
+            <p>Your opinion counts to us, make your dream hero</p>
+            <form action="/heroes" method="post" class="p-2" id="regHero">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="hero's Name" required>
+
+                <label for="age">Age</label>
+                <input type="text" class="form-control" name="age" placeholder="hero's Age" required>
+
+                <label for="name">Superpowers</label>
+                <input type="text" class="form-control" name="superPowers" placeholder="hero's superpowers" required>
+
+                <label for="name">Weakness</label>
+                <input type="text" class="form-control" name="weakness" placeholder="hero's  weakness" required>
+
+                <button type="submit" class="btn btn-primary">Register</button>
+
+            </form>
+            <hr>
+            <button class="btn btn-warning btn-lg">
+                <a href="/"> Go Home</a>
+            </button>
+
+            {{#if allHeroes}}
+                <button class="btn btn-warning btn-lg">
+                    <a href="/squads"> Create Squad</a>
+                </button>
+            {{/if}}
+
+        </div>
+
+        <div class="col-md-6  m-4">
+            <h3 class="">List of Heroes</h3>
+            {{#if allHeroes}}
+
+                <ol>
+                    {{#each allHeroes}}
+                        <h4>{{id}}. Name : {{name}}  </h4>
+                        <p>Age {{age}}: </p>
+                        <p>Superpowers: {{superPowers}}</p>
+                        <p>Weakness:  {{weakness}}</p>
+                    {{/each}}
+                </ol>
+            {{else}}
+                <div class="jumbotron m-4" >
+                    <h4>OOOPS!!!No Heroes registered yet </h4>
+                    <a href="#regHero">Register Hero</a>
+                </div>
+            {{/if}}
+
+            <hr>
+
+
+        </div>
+
+
+
+{{/partial}}
+
+{{> master.hbs}}

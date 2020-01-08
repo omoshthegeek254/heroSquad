@@ -22,7 +22,28 @@ public class App {
         port(getHerokuAssignedPort());
         staticFileLocation( "/public");
 
-        get("/", (request, response) -> {
+//        get("/", (request, response) -> {
+//        returning all heroes
+        get("/heroes", (request, response) -> {
+
+
+            Map<String, Object> model = new HashMap<String, Object>();
+            ArrayList<Heroes> allHeroes = Heroes.getAllHeroes();
+
+
+            model.put("allHeroes", allHeroes);
+
+
+
+//            return new ModelAndView(model,"index.hbs");
+            return new ModelAndView(model,"heroes.hbs");
+        }, new HandlebarsTemplateEngine());
+
+//        returning squads
+
+        get("/squads", (request, response) -> {
+
+
             Map<String, Object> model = new HashMap<String, Object>();
             ArrayList<Heroes> allHeroes = Heroes.getAllHeroes();
             ArrayList<Squads> allSquads = Squads.getAllSquads();
@@ -31,10 +52,13 @@ public class App {
             model.put("allSquads", allSquads);
 
 
-            return new ModelAndView(model,"index.hbs");
+
+//            return new ModelAndView(model,"index.hbs");
+            return new ModelAndView(model,"squads.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post ("/post-hero", (request, response) -> {
+//        post ("/post-hero", (request, response) -> {
+        post ("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
 
             String name = request.queryParams("name");
@@ -48,7 +72,9 @@ public class App {
             return new ModelAndView(model,"post-hero.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post ("/hero-team", (request, response) -> {
+//        handles heroes post and display
+
+        post ("/squads", (request, response) -> {
 
             Map<String, Object> model = new HashMap<>();
 
@@ -61,6 +87,32 @@ public class App {
 
             return new ModelAndView(model,"hero-team.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //handles post from signin on signin hbs
+
+        post("/", (request, response) -> {
+            Map<String, String> model =new HashMap<>();
+            String username = request.queryParams("username");
+            request.cookie("username");
+            model.put("username",username);
+
+
+
+            return new ModelAndView(model,"signin.hbs");
+        }, new HandlebarsTemplateEngine());
+
+//return usr cookies
+
+        get("/", (request, response) -> {
+            Map<String, String> model =new HashMap<>();
+            model.put("username",request.cookie("username"));
+
+
+
+            return new ModelAndView(model,"signin.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
     }
 
 }

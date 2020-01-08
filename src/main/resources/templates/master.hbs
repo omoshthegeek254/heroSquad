@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{#block "title" }}{{/block}}</title>
+    <title>Hero-Squad</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
 </head>
-<body>
+<body class="bg-danger">
 <!--begin main template-->
-<div class="container bg-danger">
+<div class="container ">
+    <div class="row">
+        {{#block "content" }}
 
-    {{#block "content" }}
+        {{/block }}
 
-    {{/block }}
+
+    </div>
+
 
 </div>
 <!--end main template-->

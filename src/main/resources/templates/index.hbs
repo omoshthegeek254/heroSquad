@@ -1,8 +1,11 @@
 
 
 {{#partial "content"}}
-   <div class="row">
-       <h1 class="jumbotron text-center bg-danger">Heros Squad </h1>
+
+       <div class=" col-md-12 jumbotron text-center">
+           <h1>Heros Squad </h1>
+       </div>
+
        <div class="col-md-6">
 
            <h2> </h2>
@@ -14,16 +17,16 @@
 
            <form action="/post-hero" method="post" class="p-2">
                <label for="name">Name</label>
-               <input type="text" class="form-control" name="name" placeholder="hero's Name">
+               <input type="text" class="form-control" name="name" placeholder="hero's Name" required>
 
                <label for="age">Age</label>
-               <input type="text" class="form-control" name="age" placeholder="hero's Age">
+               <input type="text" class="form-control" name="age" placeholder="hero's Age" required>
 
                <label for="name">Superpowers</label>
-               <input type="text" class="form-control" name="superPowers" placeholder="hero's superpowers">
+               <input type="text" class="form-control" name="superPowers" placeholder="hero's superpowers" required>
 
                <label for="name">Weakness</label>
-               <input type="text" class="form-control" name="weakness" placeholder="hero's  weakness">
+               <input type="text" class="form-control" name="weakness" placeholder="hero's  weakness" required>
 
                <button type="submit" class="btn btn-primary">Register</button>
 
@@ -42,11 +45,11 @@
 
            <form action="/hero-team" method="post" class="p-3">
                <label for="squadName">Squad Name</label>
-               <input type="text" class="form-control" name="squadName" placeholder="enter squad name">
+               <input type="text" class="form-control" name="squadName" placeholder="enter squad name" required>
 
                <label for="cause">Squad Members</label>
-               <select class="form-control" id="inlineFormCustomSelect" name="squadMembers">
-                   <option selected>Choose... Squad Members</option>
+               <select class="form-control" id="inlineFormCustomSelect" name="squadMembers" required>
+                   <option disabled >Choose... Squad Members</option>
                    {{#each allHeroes}}
                        <option value="{{name}}">{{id}} . {{name}}</option>
                    {{/each}}
@@ -54,9 +57,9 @@
                </select>
 
                <label for="members">Squad Cause</label>
-               <select class="form-control" id="inlineFormCustomSelect" name="squadCause">
-                   <option selected>Choose... Combating</option>
-                   <option value="Gender Based Crimes">Gender Based Crimes</option>
+               <select class="form-control" id="inlineFormCustomSelect" name="squadCause" required>
+                   <option >Choose... Combating</option>
+                   <option selected value="Gender Based Crimes">Gender Based Crimes</option>
                    <option value="Economic Crimes">Economic Crimes </option>
                    <option value="Evil Villans">Evil Villans</option>
                </select>
@@ -109,7 +112,7 @@
 
        </div>
 
-   </div>
+
 
 {{/partial}}
 

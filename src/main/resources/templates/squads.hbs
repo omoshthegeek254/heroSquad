@@ -1,0 +1,90 @@
+{{#partial "content"}}
+
+    <div class="jumbotron text-center">
+
+        <h2>Squads</h2>
+    </div>
+
+        <div class="col-md-6">
+            <h3 class="">Create you Squad</h3>
+
+            <p>There's safety in numbers</p>
+
+            <form action="/squads" method="post" class="p-3">
+                <label for="squadName">Squad Name</label>
+                <input type="text" class="form-control" name="squadName" placeholder="enter squad name" required>
+
+                <label for="cause">Squad Members</label>
+                <select class="form-control" id="inlineFormCustomSelect" name="squadMembers" required>
+                    {{#if allHeroes}}
+                        <option  >Choose... Squad Members</option>
+
+                        {{#each allHeroes}}
+                            <option value="{{name}}">{{id}} . {{name}}</option>
+                        {{/each}}
+
+                        {{else}}
+                        <option disabled >First Register a hero</option>
+
+
+                    {{/if}}
+
+                </select>
+
+                <label for="members">Squad Cause</label>
+                <select class="form-control" id="inlineFormCustomSelect" name="squadCause" required>
+                    <option >Choose... Combating</option>
+                    <option selected value="Gender Based Crimes">Gender Based Crimes</option>
+                    <option value="Economic Crimes">Economic Crimes </option>
+                    <option value="Evil Villans">Evil Villans</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary">Create Squad</button>
+            </form>
+
+            <hr>
+            <button class="btn btn-warning btn-lg">
+                <a href="/"> Go Home</a>
+            </button>
+
+            {{#if allHeroes}}
+
+
+            {{else}}
+                <button class="btn btn-warning btn-lg">
+                    <a href="/heroes"> Register a Hero</a>
+                </button>
+
+
+            {{/if}}
+
+
+        </div>
+
+        <div class="col-md-6 m-4 bg-dark">
+            <h3 class="">List of Squads</h3>
+            {{#if allSquads}}
+
+                <ol>
+                    {{#each allSquads}}
+                        <h4>{{id}} Squad Name : {{squadName}}  </h4>
+                        <p>Squad Members : {{squadMembers}}: </p>
+                        <p>Squad Cause:(Fights) {{squadCause}}</p>
+
+                    {{/each}}
+                </ol>
+            {{else}}
+                <div class="jumbotron m-4">
+                    <h4>OOOPS!!!No Squads registered yet </h4>
+                    <a href="#regHero">Register a Squad</a>
+                </div>
+            {{/if}}
+
+
+        </div>
+
+
+
+{{/partial}}
+
+{{> master.hbs}}
